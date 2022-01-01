@@ -4,12 +4,13 @@ import com.example.springstudy.domain.Member;
 import com.example.springstudy.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 
-
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -19,6 +20,7 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
+    // @Transactional
     public long join(Member member) {
         // 중복 검사
         validateDuplicateMember(member);
